@@ -23,7 +23,9 @@ Header.propTypes = {
 //How to set inline style
 div className = "---" style {{backgroundColor: "red"}}>
 
-//Passing ciolors as props
+//Passing colors as props
 
 //Suppose now if i had to change the rating 10 if i click and if i click it should again change it to 7
  setRating((prevState) => prevState === 7 ? 10 : 7)
+
+ //Style Component Reusablity
