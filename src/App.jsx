@@ -14,7 +14,7 @@ function App() {
     {FeedbackData.map((feedback) => {
       return (<FeedbackList key = {feedback.id} feedback={feedback}/>)
     })}
-    <Card>
+    <Card reverse={false}>
     Hello World
     </Card>
     </div>
