@@ -6,6 +6,9 @@ const FeedbackList = (props) => {
     const handleClick = ()  => {
         setRating((prevState) => prevState === 7 ? 10 : 7)
     }
+    if(!props.feedback || props.feedback.length === 0) {
+      return (<p>No feedback yet</p>)
+    }
   return (
     <div>
       <Card>
