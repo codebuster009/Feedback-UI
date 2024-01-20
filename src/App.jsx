@@ -1,9 +1,9 @@
 import "./App.css";
-import Header from "./components/Header.jsx";
 import FeedbackList from "./components/FeedbackList.jsx";
 import { useState } from "react";
 import FeedbackData from "./utils/FeedbackData.js";
 import Card from "./components/shared/Card.jsx";
+import FeedbackStats from "./components/feedbackStats.jsx";
 
 function App() {
   const [feedback, setFeedback] = useState(FeedbackData);
@@ -15,7 +15,7 @@ function App() {
   };
   return (
     <>
-      <Header text="Hello World" />
+      <FeedbackStats feedback = {feedback}/>
       <div className="container">
         {feedback.map((feedback) => {
           return (
