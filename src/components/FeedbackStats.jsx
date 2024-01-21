@@ -6,7 +6,7 @@ const FeedbackStats = ({feedback}) => {
     return (
         <>
         <div>No. of Reviews = {feedback.length}</div>
-        <div>Average = {average}</div>
+        <div>Average = {isNaN(average) ? "No Reviews as of yet" : average}</div>
         </>
     )
 }

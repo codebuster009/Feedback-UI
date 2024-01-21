@@ -4,6 +4,8 @@ import { useState } from "react";
 import FeedbackData from "./utils/FeedbackData.js";
 import Card from "./components/shared/Card.jsx";
 import FeedbackStats from "./components/feedbackStats.jsx";
+import FeedbackForm from "./components/FeedbackForm.jsx";
+
 
 function App() {
   const [feedback, setFeedback] = useState(FeedbackData);
@@ -15,6 +17,7 @@ function App() {
   };
   return (
     <>
+      <FeedbackForm/>
       <FeedbackStats feedback = {feedback}/>
       <div className="container">
         {feedback.map((feedback) => {
