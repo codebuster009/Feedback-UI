@@ -12,3 +12,16 @@
 .card.reverse{
   border: 5px solid green;
 }
+
+.btn{
+  color: brown;
+  background-color: aqua;
+}
+.btn-primary {
+  color: rgb(22, 182, 46);
+  background-color: rgba(58, 15, 168, 0.601);
+}
+.btn-secondary {
+  color: rgb(110, 14, 155);
+  background-color: rgba(143, 5, 242, 0.601);
+}
