@@ -25,3 +25,15 @@
   color: rgb(110, 14, 155);
   background-color: rgba(143, 5, 242, 0.601);
 }
+
+.rating{
+  border-radius: 50px;
+  border: 2px rebeccapurple solid;
+  width: 20px;
+  height: 20px;
+}
+.rating-parent{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
