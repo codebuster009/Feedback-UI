@@ -6,10 +6,13 @@ const FeedbackForm = () => {
   const [disabled , setdisabled] = useState(true)
   const [message , setMessage] = useState(null)
   function handleText(e) {
-    if(text === "" || text.trim().length <= 10) {
+    if(text.trim().length <= 10) {
       setdisabled(true)
       setMessage("Text must be atleast 10 characters")
-    } else{
+    } else if (text === "" ) {
+      setdisabled(true)
+      setMessage("")
+    }else{
       setdisabled(false)
     }
     setText(e.target.value)
