@@ -11,18 +11,6 @@ import { useId } from 'react';
 
 function App() {
   const [feedback, setFeedback] = useState(FeedbackData);
-  const numbers = [
-    { id: 1, value: 1 },
-    { id: 2, value: 2 },
-    { id: 3, value: 3 },
-    { id: 4, value: 4 },
-    { id: 5, value: 5 },
-    { id: 6, value: 6 },
-    { id: 7, value: 7 },
-    { id: 8, value: 8 },
-    { id: 9, value: 9 },
-    { id: 10, value: 10 }
-  ];
   const passwordHint = useId()
   const deleteFeedback = (id) => {
     if(window.confirm("Are you sure want to delete")) {
@@ -36,11 +24,7 @@ function App() {
       <FeedbackStats feedback = {feedback}/>
       <Card>
       <div className="rating-parent">
-      {numbers.map((num)=> {
-        return(
-          <RatingComponent key={num.id} num = {num.value}/>
-        )
-      })}
+      <RatingComponent/>
       </div>
       </Card>
       <div className="container">
