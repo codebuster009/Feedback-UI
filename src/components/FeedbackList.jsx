@@ -12,9 +12,9 @@ const FeedbackList = ({feedback , deleteFeedback , newFeedback}) => {
     <div>
       <Card reverse = {true}>
         <div className="num-display">{feedback.rating}</div>
-        <button onClick={() => deleteFeedback(feedback.id)}><FaTimes/></button>
+        <button onClick={()=> deleteFeedback(feedback.id)}><FaTimes/></button>
         <div className="text-display">{feedback.text}</div>
-      </Card>
+      </Card> 
     </div>
   )
 }
