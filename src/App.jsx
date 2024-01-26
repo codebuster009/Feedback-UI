@@ -5,7 +5,6 @@ import FeedbackData from "./utils/FeedbackData.js";
 import Card from "./components/shared/Card.jsx";
 import FeedbackStats from "./components/feedbackStats.jsx";
 import FeedbackForm from "./components/FeedbackForm.jsx";
-import RatingComponent from "./components/RatingComponent.jsx";
 import { useId } from 'react';
 
 
@@ -22,11 +21,6 @@ function App() {
     <>
       <FeedbackForm/>
       <FeedbackStats feedback = {feedback}/>
-      <Card>
-      <div className="rating-parent">
-      <RatingComponent/>
-      </div>
-      </Card>
       <div className="container">
         {feedback.map((feedback) => {
           return (
