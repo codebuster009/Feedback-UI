@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import About from "./pages/About.jsx";
 import Home from "./pages/Home.jsx";
+import Post from "./components/Post.jsx";
 
 function App() {
   const [feedback, setFeedback] = useState(FeedbackData);
@@ -61,6 +62,7 @@ function App() {
         />
         <Route path="/about" element={<About />} />
         <Route path="/" element={<Home />} />
+        <Route path="/post/:id/:name" element={<Post />} />
       </Routes>
     </Router>
   );
