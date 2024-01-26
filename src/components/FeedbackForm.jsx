@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import Card from './shared/Card'
 import Button from './shared/Button'
 import RatingComponent from './RatingComponent'
-const FeedbackForm = () => {
+const FeedbackForm = ({addFeedback}) => {
   const [text , setText] = useState("")
   const [disabled , setdisabled] = useState(true)
   const [message , setMessage] = useState(null)
-  const [rating , setRating] = useState(1)
+  const [rating , setRating] = useState(null)
   function handleText(e) {
     if(text.trim().length <= 10) {
       setdisabled(true)
@@ -26,12 +26,12 @@ const FeedbackForm = () => {
         text,
         rating
       }
-      console.log(newFeedback)
+      addFeedback(newFeedback)
     }
   }
   return (
     <Card>
-      <form onClick={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <input type="text" onChange={handleText} placeholder = "Type your name" value={text}/>
         {message && message}
         <Card>
