@@ -1,4 +1,5 @@
 import "./App.css";
+import { motion, AnimatePresence } from 'framer-motion';
 import uuid from 'react-uuid';
 import FeedbackList from "./components/FeedbackList.jsx";
 import { useState } from "react";
@@ -27,16 +28,25 @@ function App() {
       <FeedbackForm addFeedback = {addFeedback}/>
       <FeedbackStats feedback = {feedback}/>
       <div className="container">
+      <AnimatePresence>
         {feedback.map((feedback) => {
           return (
+           <motion.div 
+           key = {feedback.id}
+           initial = {{opacity: 0}}
+           animate = {{opacity: 1}}
+           exit = {{opacity: 0}}
+           >
             <FeedbackList
               key={feedback.id}
               feedback={feedback}
               deleteFeedback={(id) => deleteFeedback(id)}
               newFeedback = {newFeedback}
             />
+            </motion.div>
           );
         })}
+        </AnimatePresence>
         <Card reverse={false}>Hello World</Card>
       </div>
     </>

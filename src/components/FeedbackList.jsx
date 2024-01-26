@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Card from "../components/shared/Card"
+import { motion, AnimatePresence } from 'framer-motion';
 import {FaTimes} from 'react-icons/fa'
 
 const FeedbackList = ({feedback , deleteFeedback , newFeedback}) => {
