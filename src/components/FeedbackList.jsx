@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import Card from "../components/shared/Card"
 import {FaTimes} from 'react-icons/fa'
 
-const FeedbackList = ({feedback , deleteFeedback}) => {
+const FeedbackList = ({feedback , deleteFeedback , newFeedback}) => {
   console.log('Rendering FeedbackList with feedback:', feedback);
+  console.log('Rendering FeedbackList with feedback:', newFeedback);
     if(!feedback || feedback.length === 0) {
       return (<p>No feedback yet</p>)
     }
