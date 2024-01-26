@@ -62,7 +62,7 @@ function App() {
         />
         <Route path="/about" element={<About />} />
         <Route path="/" element={<Home />} />
-        <Route path="/post/:id/:name" element={<Post />} />
+        <Route path="/post" element={<Post />} />
       </Routes>
     </Router>
   );

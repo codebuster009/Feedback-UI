@@ -1,12 +1,22 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { Navigate , useNavigate } from 'react-router-dom'
 
 const Post = () => {
-    const params = useParams()
+    const navigate = useNavigate()
+    const handleClick = () => {
+        navigate('/');
+      };
+    const status = 200
+    if(status === 404) {
+       return <Navigate to = '/notFound'/>
+    }
   return (
+    <>
     <div>
-    This post {params.id} of {params.name}
+    This post
     </div>
+    <button onClick={handleClick}>Click Me</button>
+    </>
   )
 }
 
