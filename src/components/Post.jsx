@@ -1,4 +1,5 @@
 import React from 'react'
+import { Routes , Route } from 'react-router-dom'
 import { Navigate , useNavigate } from 'react-router-dom'
 
 const Post = () => {
@@ -16,6 +17,9 @@ const Post = () => {
     This post
     </div>
     <button onClick={handleClick}>Click Me</button>
+    <Routes>
+        <Route path ='/show' element = {<h1>Hello Show</h1>}/>
+    </Routes>
     </>
   )
 }
