@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import About from "./pages/About.jsx";
 import Home from "./pages/Home.jsx";
 import Post from "./components/Post.jsx";
+import FeedbackContext, { FeedbackProvider } from "./context/FeedbackContext.jsx";
 
 function App() {
   const [feedback, setFeedback] = useState(FeedbackData);
@@ -29,6 +30,7 @@ function App() {
     setFeedback([newfeedback, ...feedback]);
   };
   return (
+    <FeedbackProvider>
     <Router>
       <Routes>
         <Route
@@ -65,6 +67,7 @@ function App() {
         <Route path="/post/*" element={<Post />} />
       </Routes>
     </Router>
+    </FeedbackProvider>
   );
 }
 
