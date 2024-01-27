@@ -1,24 +1,36 @@
-import React, { useState } from 'react'
-import Card from "../components/shared/Card"
-import {FaTimes} from 'react-icons/fa'
+import React, { useContext } from 'react';
+import { motion, AnimatePresence } from 'framer-motion'; // Import motion and AnimatePresence
+import Card from '../components/shared/Card';
+import { FaTimes } from 'react-icons/fa';
+import FeedbackContext from '../context/FeedbackContext.jsx';
 
-const FeedbackList = ({feedback , deleteFeedback , newFeedback}) => {
-  console.log('Rendering FeedbackList with feedback:', feedback);
-  console.log('Rendering FeedbackList with feedback:', newFeedback);
-    if(!feedback || feedback.length === 0) {
-      return (<p>No feedback yet</p>)
+const FeedbackList = ({ newFeedback }) => {
+    const { feedback, deleteFeedback } = useContext(FeedbackContext);
+
+    if (!feedback || feedback.length === 0) {
+        return <p>No feedback yet</p>;
     }
-  return (
-    <div>
-      <Card reverse = {true}>
-        <div className="num-display">{feedback.rating}</div>
-        <button onClick={()=> deleteFeedback(feedback.id)}><FaTimes/></button>
-        <div className="text-display">{feedback.text}</div>
-      </Card> 
-    </div>
-  )
-}
+
+    return (
+        <AnimatePresence>
+            {feedback.map((item) => (
+                <motion.div
+                    key={item.id}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                >
+                    <Card reverse={true}>
+                        <div className="num-display">{item.rating}</div>
+                        <button onClick={() => deleteFeedback(item.id)}>
+                            <FaTimes />
+                        </button>
+                        <div className="text-display">{item.text}</div>
+                    </Card>
+                </motion.div>
+            ))}
+        </AnimatePresence>
+    );
+};
 
 export default FeedbackList;
-
-
