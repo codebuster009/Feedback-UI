@@ -4,12 +4,11 @@ import Button from './shared/Button'
 import RatingComponent from './RatingComponent'
 import FeedbackContext from '../context/FeedbackContext'
 const FeedbackForm = () => {
-  const {addFeedback} = useContext(FeedbackContext)
   const [text , setText] = useState("")
   const [disabled , setdisabled] = useState(true)
   const [message , setMessage] = useState(null)
   const [rating , setRating] = useState(null)
-  const {feedbackEdit} = useContext(FeedbackContext)
+  const {feedbackEdit , updateFeedback , addFeedback} = useContext(FeedbackContext)
   function handleText(e) {
     if(text.trim().length <= 10) {
       setdisabled(true)
@@ -29,7 +28,11 @@ const FeedbackForm = () => {
         text,
         rating
       }
-      addFeedback(newFeedback)
+      if(feedbackEdit.edit) {
+        updateFeedback(feedbackEdit.item.id , newFeedback)
+      } else{
+        addFeedback(newFeedback)
+      }
     }
   }
   useEffect(()=> {
