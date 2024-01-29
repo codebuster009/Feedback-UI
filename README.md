@@ -29,3 +29,5 @@ div className = "---" style {{backgroundColor: "red"}}>
  setRating((prevState) => prevState === 7 ? 10 : 7)
 
  //Style Component Reusablity
+
+ //npm install concurrently to run the two servers from the single command

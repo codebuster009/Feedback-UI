@@ -3,15 +3,17 @@ import { motion, AnimatePresence } from 'framer-motion'; // Import motion and An
 import Card from '../components/shared/Card';
 import { FaEdit, FaTimes } from 'react-icons/fa';
 import FeedbackContext from '../context/FeedbackContext.jsx';
+import GifSpinner from './shared/Spinner.jsx';
 
 const FeedbackList = ({ newFeedback }) => {
-    const { feedback, deleteFeedback , editFeedback } = useContext(FeedbackContext);
+    const { feedback, deleteFeedback , editFeedback , isLoading } = useContext(FeedbackContext);
 
-    if (!feedback || feedback.length === 0) {
+    if ( !isLoading && (!feedback || feedback.length === 0)) {
         return <p>No feedback yet</p>;
     }
-
-    return (
+    return isLoading ? (
+        <GifSpinner/>
+    ) : (
         <AnimatePresence>
             {feedback.map((item) => (
                 <motion.div
