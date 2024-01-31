@@ -1,6 +1,7 @@
 {
   "name": "feedback-app",
   "private": true,
+  "proxy": "http://localhost:5000",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -9,9 +10,12 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "server": "json-server --watch db.json --port 5000",
-    "concurrent" : "concurrently \"npm run server\" \"npm run dev\""
+    "concurrent": "concurrently \"npm run server\" \"npm run dev\""
   },
   "dependencies": {
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.15.6",
     "concurrently": "^8.2.2",
     "framer-motion": "^11.0.3",
     "json-server": "^1.0.0-alpha.23",

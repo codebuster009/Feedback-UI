@@ -1,6 +1,4 @@
 import { createContext, useState, useEffect } from "react";
-import uuid from "react-uuid";
-
 const FeedbackContext = createContext();
 
 export const FeedbackProvider = ({ children }) => {
@@ -33,7 +31,15 @@ export const FeedbackProvider = ({ children }) => {
     });
   };
 
-  const updateFeedback = (id, updatedItem) => {
+  const updateFeedback = async (id, updatedItem) => {
+    const  response = await fetch("http://localhost:5000/feedback/${id}" , {
+      method : 'PUT',
+      headers: {
+        'Content-Type' : 'application/json'
+      },
+      body : JSON.stringify(updatedItem)
+       })
+       const data = await response.json()
     setFeedback(
       feedback.map((item) =>
         item.id === id ? { ...item, ...updatedItem } : item
@@ -41,13 +47,21 @@ export const FeedbackProvider = ({ children }) => {
     );
   };
 
-  const addFeedback = (newFeedback) => {
-    newFeedback.id = uuid();
-    setFeedback([newFeedback, ...feedback]);
+  const addFeedback = async (newFeedback) => {
+    const response = await fetch ("http://localhost:5000/feedback" , {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body : JSON.stringify(newFeedback)
+    })
+    const data = await response.json()
+    setFeedback([data, ...feedback]);
   };
 
-  const deleteFeedback = (id) => {
+  const deleteFeedback = async (id) => {
     if (window.confirm("Are you sure you want to delete")) {
+      await fetch(`http://localhost:5000/feedback/${id}` , {method : 'DELETE'})
       console.log("Deleting feedback with ID:", id);
       setFeedback(feedback.filter((item) => item.id !== id));
     }
